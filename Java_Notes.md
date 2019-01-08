@@ -64,3 +64,14 @@ public class Dog extends Animal implements Pet, Savealbe, Paintable {
 
 * The keyword `super` is used to call the method from the superclass of the inherited class. We can put the part of the implementation code, which is generic enough for all the sub-classes and then we can call the method from the superclass and do the thing and then continue the stuff which are specific to the derived class in it. In simple words, to call the method from the super class, use the keyword `super`. It allows you to call the superclass version of the *overridden* method, from **within** in the subclass.
 * The `super` keyword is a reference to the super class portion of an object.
+
+## Chapter 9: Life and death of an object
+
+* There are two points to note about memory in Java.
+  1. The heap: Where the objects of a class live.
+  2. The Stack: Where method invocations and local variables live. (Also known as the garbage collectable heap)
+* Local variables are also known as *stack* variable. They are declared inside a method. They are temporary and are alive only as long as they are on the stack. (In other words, they are alive until their method invocation is alive).
+* Instance variables are variables which are declared inside a class. These variables can hold different values for different objects. They live inside the object they belong to (on the Heap).
+* The method calls makes the method land on the stack and these method calls are stored in stack frames. The stack frame holds information such as the values of the local variables and which line it is executing.
+* The method on the top is the current-executing method.
+* When the local variable is a reference variable, then the reference alone is stored on the stack. No matter what, the object only lives on the heap.
