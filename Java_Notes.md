@@ -42,3 +42,25 @@ public class Dog extends Canine implements Pet {
 ```
 
 * We can also extend a class while implementing an interface.
+* Interface methods are implicitly public and abstract. Though we can maintain optionally type the keywords explicitly, it is not advised to do so.
+* When we use a class as a polymorphic type, the object that can hold must be of the type of its subclasses in the inheritance tree. But when we use an interface as the polymorphic type, the object can be from anywhere in the inheritance tree. The only requirement is that the class of the object must implement the interface.
+* We can implement multiple interfaces on a same class like,
+
+```java
+public class Dog extends Animal implements Pet, Savealbe, Paintable {
+    pass;
+}
+```
+
+* Java weighs on family values. There can be only one Parent to a class. They define who you are. But we can implement multiple interfaces. Those are the roles you can play.
+* How to figure out what you want?
+  * **A Class**: It doesn't extend anything (other than Object, that too implicitly).
+  * **A SubClass** (Extend a class) : Only when you need a more specific version of a class or when there is a need to override or add new behaviours.
+  * **Abstract Class**: Use an abstract class,
+    1. When there is a need to create a *template* for a group of subclasses.
+    2. When you have some implementation code that all the subclasses use.
+    3. When you've to make sure that no one can instantiate the type.
+  * **Interface**: Use an interface when you want to define a *role* that other classes can play, regardless of where those classes are in the inheritance tree.
+
+* The keyword `super` is used to call the method from the superclass of the inherited class. We can put the part of the implementation code, which is generic enough for all the sub-classes and then we can call the method from the superclass and do the thing and then continue the stuff which are specific to the derived class in it. In simple words, to call the method from the super class, use the keyword `super`. It allows you to call the superclass version of the *overridden* method, from **within** in the subclass.
+* The `super` keyword is a reference to the super class portion of an object.
