@@ -110,3 +110,11 @@ Head First Java Book notes
 * A constructor lets you jump into the middle of the object creation - into the middle of `new`.
 * Java lets you have a method with the same name as the class. The difference between the constructor and the method is identified by the _return type_. A method must have a return type while a constructor cannot.
 * Constructors are not inherited.
+* By default the compiler creates a no-argument constructor for you, ONLY if you didn't touch the constructor part itself. If you write a constructor that takes argument and still want a no-argument constructor, then you've to write it yourself.
+* If you have more than one constructor, then they MUST have different argument list. That includes argument type, number of arguments and the order in which the arguments are given.
+* Always try to make a no-argument constructor, to make it easy for the programmer to make a working object, by providing with the default values.
+* More than one constructor in a class means the constructor is overloaded. The overloaded constructors must have different argument list.
+* Making an object, fires up the chain reaction on the constructors over the whole inheritance tree.
+* The super constructors runs to build out the superclass part of the object.
+* Even when the instance variables are not inherited (marked as `private`), the sub-class depends on the methods of the superclass, which might use the private variables.
+* When a constructor runs, it suddenly calls its superclass's constructor, all the way up to the `Object` constructor.
