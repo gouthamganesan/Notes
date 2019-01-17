@@ -117,4 +117,13 @@ Head First Java Book notes
 * Making an object, fires up the chain reaction on the constructors over the whole inheritance tree.
 * The super constructors runs to build out the superclass part of the object.
 * Even when the instance variables are not inherited (marked as `private`), the sub-class depends on the methods of the superclass, which might use the private variables.
-* When a constructor runs, it suddenly calls its superclass's constructor, all the way up to the `Object` constructor.
+* When a constructor runs, it immediately calls its superclass's constructor, all the way up to the `Object` constructor.
+* To make the constructor call the superclass's constructor, use the `super()` statement inside the subclass constructor. This calls the superclass's constructor.
+* Even if we didn't call the `super()` constructor, the compiler puts one automatically for us. Thus mentioning the statement is optional.
+* The superclass part of an object must be fully-formed before the subclass part of the object can be constructed.
+* Since the superclass parts of the object must be fully-formed before the subclass part of the object is even begun to be constructed, the call to the superclass constructor (`super()`) must be the first statement in the constructor.
+* We can also put argument in the `super(<args>)` constructor call to call the overloaded constructors.
+* Similar to the keyword `super()`, which calls the constructor of the parent/superclass, the keyword `this()` calls the constructor of its own class. This `this()` call can be used to call an overloaded constructor from within the same class. This makes it easy when, all the overridden constructors do the same thing with minor changes. Thus we can put all the common stuff in a single constructor and call the overridden constructor from the same class.
+* The keyword `this` is a reference to the current object. The statement (call) `this()` can be said only inside a constructor and that too, must be the first statement of the constructor.
+* But the statement `super()` must also be the first statement of the a constructor, right. There is an option. Either the statement `super()` or `this()` must be the first statement of the constructor. But NEVER both.
+* Since at least one constructor must have `super()` call, that constructor is The Real Constructor. There can be multiple ones. This does the Real Work of initialising the object.
