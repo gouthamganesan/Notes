@@ -127,3 +127,15 @@ Head First Java Book notes
 * The keyword `this` is a reference to the current object. The statement (call) `this()` can be said only inside a constructor and that too, must be the first statement of the constructor.
 * But the statement `super()` must also be the first statement of the a constructor, right. There is an option. Either the statement `super()` or `this()` must be the first statement of the constructor. But NEVER both.
 * Since at least one constructor must have `super()` call, that constructor is The Real Constructor. There can be multiple ones. This does the Real Work of initialising the object.
+* The object lives as long as the *reference variable* which refers to it lives. So how long does the *reference variable* lives? That depends on whether the variable is a local or an instance variable.
+* A local variable lives as long as the method in which it is declared lives on the stack frame. Once the stack frame is removed from the stack, the variable goes out of existence.
+* An instance variable lives as long as the object that contains it lives. Which in turn depends on the lifetime of the reference variable.
+* There is a difference between *Scope* and *being alive*.
+* Being alive means how long the variable can retain its value. A local variable can retain its value as long as the method in which it is declared is on the stack.
+* Scope means when the variable is accessible. A local variable is accessible only when the stack frame (the method) in which it is contained (declared) is at the top of the stack. In other words, the local variable is accessible only when the variable's method is the one currently running.
+* In case of Reference variables, the rules are same for both primitives and reference variables. The variable lives as long as the method is on the stack (for local variables) or (in case of instance variables) as long as its object lives.
+* When the reference to an object dies and it is the *only* reference to it, then the object is eligible for *garbage collection*. So, when your program runs out of memory, the garbage collector (GC) collect all the un-referenced objects to reclaim memory to run the program.
+* There are three ways to get rid of an objects reference,
+  * When its method dies.
+  * The reference is assigned to another new object. (Reprogrammed)
+  * The reference is assigned to `null`. (Deprogrammed)
