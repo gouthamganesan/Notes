@@ -9,7 +9,7 @@ Head First Java Book notes
 * An abstract method must always be inside an abstract class.
 * abstract methods are there to make the methods a must for the classes that extend from this parent abstract class. This is to define a protocol for the group of sub-classes (sub-types)
 * The abstract methods must be implemented as they don't have a body.
-* THE COMPILER DECIDES WHETHER YOU CAN CALL A METHOD BASED ON THE TYPE OF THE **REFERENCE** NOT THE ACTUAL OBJECT TYPE.
+* THE COMPILER DECIDES WHETHER YOU CAN CALL A METHOD OR NOT, BASED ON THE TYPE OF THE **REFERENCE** NOT THE ACTUAL OBJECT TYPE.
 * AGAIN, The compiler checks the type of the reference - not the type of the Object to see if you can call a method using that reference.
 * Let us consider the reference variable to be a remote control. When the type of the reference is more down the inheritance tree, the more buttons it may have. For example, A Dog type (implicitly extends Object) reference variable has more buttons than a reference variable pointed to the Object type. A reference of type Dog has both the Dog-specific methods and the methods of the Object class, while a reference of Object type has only the methods of it's own class (Object). (Pg. 215: Nice Diagram to understand)
 * We can cast a reference back to it's original type from Object using Casting.
@@ -139,3 +139,75 @@ Head First Java Book notes
   * When its method dies.
   * The reference is assigned to another new object. (Reprogrammed)
   * The reference is assigned to `null`. (Deprogrammed)
+
+## Chapter 10: Number matters
+
+* There are cases where the instance variable of a class has no effect over one of the methods of the class. In other words, the only data involved with such methods are the ones that come as a parameter and the one that it returns.
+* These methods are declared as `static` and they can be access by mentioning the class name and not the object name. For example, to access the methods like `min()` or `max()` from the `Math` class, all you need is the class name. In fact Math class doesn't have any instance variables. And moreover, we can't make an instance of the class Math.
+* A normal object has an instance of the method (a copy of the method and the instance variable bundled - Encapsulation). So, a normal non-static method runs with an instance of the class.
+* The keyword `static` lets the method run without an instance of the class. Which essentially tells that the behaviour of the method is not dependent of the instance variables of the class.
+* So, while a normal method is accessed by mentioning the instance name using the dot operator, a static method is called using the dot operator on the class name.
+* The reason the Math class can't have an object is that the constructor of the class is marked as `private`. So only code from inside the Math class can invoke that constructor. (Another way to restrict the class from being instantiated is marking the class `abstract`, Chapter 8)
+* Static methods run without knowing about any particular instance of the static method's class.
+* Since a static method is called using the class's name as opposed to the instance's name, it cannot access any instance variable.
+* This is because, the static method doesn't know about any of the instances (objects) of the class. Thus, it won't know who's instance variable to look for.
+* For the exact same reason, the static methods cannot call a non-static method. The compiler won't know on which object the method is to be called.
+* Calling a static method with any instance variable of the class, will work. But it makes the code *less readable*.
+* Making a variable static makes it available for all the instances of the class. It won't belong to any object. All the objects share the same value of the static variable.
+  * Instance variables = 1 per instance
+  * Static variable = 1 per class
+* A static variable is initialised when the class is loaded. (The JVM loads a class, when the program is gonna access it)
+* Two guarantees about static initialisation: Static variables in a class are initialised before
+  * any *object* of that class is created.
+  * any *static method* of that class runs.
+* We can access a static variable just like we do with the static method. Using the class name, provided the access modifier is set to accessible.
+* A variable marked as `final` means it is a constant and its value cannot be changed.
+* `public static final double PI = 3.141592653589793;` lies in the `Math.PI`. Its marked `static`, so that you don't need an instance to access it.
+* Convention: Name a constant with a ALL-CAPS variable name.
+* A **static initializer** is a block of code which runs when a class gets loaded. It is a nice place to initialize all static variables. 
+
+```java
+class Foo {
+    final static int X;
+    static
+    {
+        X = 42;
+    }
+}
+```
+
+* A final variable can be initialized in two places.
+  * As soon as it is created.
+  * In the static initializer.
+* If it is not initialized with these two, then the compiler throws an error.
+* A static initializer runs before any static methods run or even before any of the static variables can be used.
+* Final keyword can be used for others too...
+  * All final variables (local, parameters, instance) means they cannot be changed.
+    * When an instance variable is declared as final, its value can be initialized when it is declared or in the constructor.
+    * When a variable is marked just as `final` then it is a constant instance variable. To make a constant variable, mark it as both `final` and `static`. This is equivalent to making a global constant in functional programming.
+  * A final method means the method cannot be *overridden*.
+  * A final class means the class cannot be *extended*.
+* If a class is marked final, then it can't be sub-classed. So none of its methods can be overridden.
+* So for this reason, when a class is marked final, there is no need to mark the method final.
+* But, when there is only need to make some of the methods overridable, and you need to make a subclass, mark only the method that are not supposed to be overridden final.
+* If you have a class that only has static methods, you do not want the class to be instantiated. This can be achieved by marking the constructor `private`.
+* A final instance variable is not automatically initialized to a default value (for the obvious reasons).
+* Some of the static methods of Math class,
+  * random
+  * abs
+  * round
+  * min
+  * max
+* Wrapping a primitive type in Java.
+
+```java
+int i = 28;
+Integer iWrap = new Integer(i); // Wrapping
+int unWrapped = iWrap.intValue(); // All unwrapping is similar to this, charValue(), booleanValue()...
+```
+
+* Wrapping is done to treat a primitive like an object.
+* Before Java 5.0, we've to convert the primitive to object references using the wrappers manually. Now, the Autoboxing feature does the conversion of primitive to wrapper object automatically.
+* [Difference between int and Integer in Java](https://stackoverflow.com/questions/8660691/what-is-the-difference-between-integer-and-int-in-java)
+* Now after Java 5.0, we can add both int (primitive) or Integer (Object references) to ArrayList and the compiler does the wrapping (boxing) automatically.
+* The rule for generic types is that, we can specify only class or interface types, not *primitives*.
