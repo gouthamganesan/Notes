@@ -211,3 +211,41 @@ int unWrapped = iWrap.intValue(); // All unwrapping is similar to this, charValu
 * [Difference between int and Integer in Java](https://stackoverflow.com/questions/8660691/what-is-the-difference-between-integer-and-int-in-java)
 * Now after Java 5.0, we can add both int (primitive) or Integer (Object references) to ArrayList and the compiler does the wrapping (boxing) automatically.
 * The rule for generic types is that, we can specify only class or interface types, not *primitives*.
+* The wrapper classes have some static utility methods too. ex. 
+  * `int i = Integer.parseInt("3");`
+  * `double d = Double.parseDouble("420.420");`
+  * `boolean b = Boolean.parseBoolean("True");`
+* There are many ways to turn a primitive number into a string.
+  * Simplest of all is to just concatenate with a string. 
+
+    ```java
+    double d = 20.5;
+    String strDouble = "" + d;
+    ```
+
+  * Another method is all primitive number wrapper classes have a method to convert to a string.
+
+    ```java
+    double d = 20.5;
+    String strDouble = Double.toString(d);
+    ```
+
+* Formatting a string that is to be printed, can be done using the `format` method in the `String` class. Ex. `String.format(%.2f, 2.0029)`
+* The percent (%) sign says insert the string here and format it with the instructions provided (after %)
+
+Format specifier | Effect
+-----------------|-------
+%.2f | The floating point number is approximated to two decimal points
+%,.2f | The floating point number is approximated to two decimal points and the numbers are separated with commas
+
+* Syntax for formatting is `%[argument number][flags][width][.precision]type`
+  * Argument number - If there are more than one arguments we can specify the argument number to pair the argument with the format specifier.
+  * Flags - Special formatting options, like adding comma, indenting or putting negative numbers in parentheses.
+  * Width - Defines the minimum number of characters that are to be used.
+  * Precision - Number f=of decimal places. Don't forget put the dot before the number.
+  * Type - This is mandatory. Always the type comes last in the format specifier. The type can be both the primitive or the wrapper class.
+    * d = Decimal
+    * f = Floating point
+    * x = Hexadecimal
+    * c = Character
+* Java has a `Date` class. So when a Date object is created without any arguments, it holds the value of the current time automatically. `new Date()`
