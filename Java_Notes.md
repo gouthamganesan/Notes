@@ -280,8 +280,6 @@ String.format("%tA, %<tB %<td", today)
     * Dates and times can be incremented - It has methods to to do operations on various fields.
     * Dates and times can be represented in milliseconds - The time can be represented in milliseconds (from Jan 1, 1970) to make precise calculations.
 
-![Calendar Methods](Calendar_methods.PNG)
-
 * Calendar methods and fields
   * Methods
     * `add(int field, int amount)` - Add or subtract the time from the given field.
