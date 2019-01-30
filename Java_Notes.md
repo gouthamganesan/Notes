@@ -164,7 +164,7 @@ Head First Java Book notes
 * A variable marked as `final` means it is a constant and its value cannot be changed.
 * `public static final double PI = 3.141592653589793;` lies in the `Math.PI`. Its marked `static`, so that you don't need an instance to access it.
 * Convention: Name a constant with a ALL-CAPS variable name.
-* A **static initializer** is a block of code which runs when a class gets loaded. It is a nice place to initialize all static variables. 
+* A **static initializer** is a block of code which runs when a class gets loaded. It is a nice place to initialize all static variables.
 
 ```java
 class Foo {
@@ -211,12 +211,12 @@ int unWrapped = iWrap.intValue(); // All unwrapping is similar to this, charValu
 * [Difference between int and Integer in Java](https://stackoverflow.com/questions/8660691/what-is-the-difference-between-integer-and-int-in-java)
 * Now after Java 5.0, we can add both int (primitive) or Integer (Object references) to ArrayList and the compiler does the wrapping (boxing) automatically.
 * The rule for generic types is that, we can specify only class or interface types, not *primitives*.
-* The wrapper classes have some static utility methods too. ex. 
+* The wrapper classes have some static utility methods too. ex.
   * `int i = Integer.parseInt("3");`
   * `double d = Double.parseDouble("420.420");`
   * `boolean b = Boolean.parseBoolean("True");`
 * There are many ways to turn a primitive number into a string.
-  * Simplest of all is to just concatenate with a string. 
+  * Simplest of all is to just concatenate with a string.
 
     ```java
     double d = 20.5;
@@ -281,3 +281,34 @@ String.format("%tA, %<tB %<td", today)
     * Dates and times can be represented in milliseconds - The time can be represented in milliseconds (from Jan 1, 1970) to make precise calculations.
 
 ![Calendar Methods](Calendar_methods.PNG)
+
+* Calendar methods and fields
+  * Methods
+    * `add(int field, int amount)` - Add or subtract the time from the given field.
+    * `get(int field)` - Returns the value of the given calendar field.
+    * `getInstance()` -Returns a calendar. The locale can be specified optionally.
+    * `getTimeInMillis()` - Returns the calendar in milliseconds, as a long.
+    * `roll(int field, boolean up)` - Adds or subtracts the field without changing the larger fields.
+    * `set(int field, int value)` - Sets the given value to the field.
+    * `set(year, month, day, hour, minute)` - All are ints.
+    * `setTimeInMillis(long millis)` - Set time in milliseconds.
+  * Fields
+    * `DATE` / `DAY_OF_MONTH`
+    * `HOUR` / `HOUR_OF_DAY`
+    * `MINUTE`
+    * `MILLISECOND`
+    * `MONTH`
+    * `YEAR`
+    * `ZONE_OFFSET`
+
+* Static imports
+* Whenever we use static methods, variables or enums we can import them and save from typing the package name again and again. But, static imports can make the code hard to read. Ex.
+
+```java
+import static java.lang.System.out;
+import static java.lang.Math.*;
+
+out.println("Hello, World!, sqrt", sqrt(2.0));
+```
+
+* Use static imports only when we've to use those methods very often. The main problem here is the naming conflict, that can happen very often.
