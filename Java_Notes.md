@@ -249,3 +249,35 @@ Format specifier | Effect
     * x = Hexadecimal
     * c = Character
 * Java has a `Date` class. So when a Date object is created without any arguments, it holds the value of the current time automatically. `new Date()`
+* To format a date, we can use,
+  * `%tc` = The complete date and time
+  * `%tr` = Just the time
+  * `%tA` = Day of the week
+  * `%tB` = Month
+  * `%td` = Day
+* For example,
+
+```java
+Date today = new Date();
+String.format("%tA, %tB %td", today, today, today); //Means "Sunday, November 28"
+```
+
+* For the previous example, we've to duplicate the arguments (today, today, today). For avoiding duplication,
+
+```java
+String.format("%tA, %<tB %<td", today)
+```
+
+* The `<` is a flag in the format specifier to tell the formatter to "use the previous argument again".
+* For a time stamp of 'now', we can use the Date class from `java.util.Date`. For everything else, we can use the `java.util.Calendar` class.
+* But the Calendar class is an abstract one. So you cannot get an instance of the class directly. Instead use the static `getInstance()` method of the class, like, `Calendar cal = Calendar.getInstance()`.
+* Since the Calendar class is an abstract one, we can't create an object of it. But we can call the static methods of on the class name.
+* This static function gives back the instance of a concrete subclass of the Calendar class.
+* **Working with Calendar**
+  * Create a Calendar instance using `Calendar.getInstance()`
+  * Assign it to a Calendar reference (`Calendar cal = Calendar.getInstance()`)
+    * Fields hold state - A calendar object has many states that can be used to store the ultimate state, date and time.
+    * Dates and times can be incremented - It has methods to to do operations on various fields.
+    * Dates and times can be represented in milliseconds - The time can be represented in milliseconds (from Jan 1, 1970) to make precise calculations.
+
+![Calendar Methods](Calendar_methods.PNG)
