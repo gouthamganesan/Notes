@@ -15,3 +15,5 @@ System.out.println("myInt is: " + myInt);
 ```
 
 * For left justifying use the (-) sign.
+* To add more than one items in a ArrayList while initialising... use `Arrays.asList(1,2,3,4,5)` method.
+* To create a uniqueID use UUID ---> `String uniqueID = UUID.randomUUID().toString();`
