@@ -1,5 +1,7 @@
 # Java notes
 
+**NOTE** - [Java API](https://docs.oracle.com/en/java/javase/11/docs/api/)
+
 Head First Java Book notes
 
 ## Chapter 8: Serious Polymorphism
@@ -310,3 +312,27 @@ out.println("Hello, World!, sqrt", sqrt(2.0));
 ```
 
 * Use static imports only when we've to use those methods very often. The main problem here is the naming conflict, that can happen very often.
+
+## Risky Behaviour
+
+* The JavaSound API, helps to create MIDI (Musical Instrument Digital Interface).
+* Its like a sheet music for the song which contains the instructions needed for the instruments to play the song. It doesn't have the sound itself, but has the instructions to instruct the instruments to create the songs. As another analogy, MIDI file is like the HTML file, while the instrument that renders the MIDI file to create sound is like the web browser.
+* Synthesizer is a software only instrument that can render the MIDI files.
+* The sequencer is the object that sends the MIDI file data to the synthesizer. Its the thing that plays the music. 
+* The Sequencer class is in the java.sound.midi package.
+* To use error handling, we must,
+  * First know that the method we use is risky. Risky methods have `throws` clause in their declaration.
+  * If we know that a method we are using in our class is risky we can make our code handle the exception if it occurs.
+* We can find if a method `throws` in the [Java API](https://docs.oracle.com/en/java/javase/11/docs/api/).
+* A `try`/`catch` block tells that compiler that we know that we are using a risky method (a method with `throws` clause)
+
+```java
+try {
+Sequencer sequencer = MidiSystem.getSequencer();        // Here goes the risky code
+System.out.println("Successfully got a sequencer");
+} catch(MidiUnavailableException ex) {
+    System.out.println(“Bummer”);           // Here we can write the code to handle if anything goes wrong
+}
+```
+
+* An exception is an object of type Exception. So an object of type Exception can be an instance of any subclass of Exception.
