@@ -318,7 +318,7 @@ out.println("Hello, World!, sqrt", sqrt(2.0));
 * The JavaSound API, helps to create MIDI (Musical Instrument Digital Interface).
 * Its like a sheet music for the song which contains the instructions needed for the instruments to play the song. It doesn't have the sound itself, but has the instructions to instruct the instruments to create the songs. As another analogy, MIDI file is like the HTML file, while the instrument that renders the MIDI file to create sound is like the web browser.
 * Synthesizer is a software only instrument that can render the MIDI files.
-* The sequencer is the object that sends the MIDI file data to the synthesizer. Its the thing that plays the music. 
+* The sequencer is the object that sends the MIDI file data to the synthesizer. Its the thing that plays the music.
 * The Sequencer class is in the java.sound.midi package.
 * To use error handling, we must,
   * First know that the method we use is risky. Risky methods have `throws` clause in their declaration.
@@ -336,3 +336,69 @@ System.out.println("Successfully got a sequencer");
 ```
 
 * An exception is an object of type Exception. So an object of type Exception can be an instance of any subclass of Exception.
+* The remedy for the occurred exception is written in `catch` block.
+* If you write a code that could fail, then you should declare a `throw` like,
+
+```java
+public void takeRisk() throws BadException {
+    if(something){
+        throw new BadException();   // Creating a new Exception object and throwing it
+    }
+}
+```
+
+* All exceptions inherit `printStackTrace()` method that prints the stack trace.
+* The compiler checks for everything except RuntimeExceptions. RuntimeExceptions are not checked by the compiler. They are known as "unchecked exceptions". You can throw, catch and declare runtime exceptions, but you don't have to as the compiler won't check.
+* The exceptions that are of type RuntimeException has a free pass. So, we don't need to catch them with try/catch block.
+* RuntimeExceptions are not exceptional situations, they are because of the flaw in the code. So, if we catch them, then there is no way to make them correct. In the development stage, you WANT the RuntimeExceptions to happen.
+* `finally` block is where you put the code that must run no matter what!
+* The finally block is used for clean up. Although we can just put the same code right next to the catch block, using finally makes it runs for sure!
+* It lets you put all the clean up code in one place, than duplicating it in both the `try` and `catch` block.
+* Even if the try or catch block has a return statement, the finally block **WILL RUN DEFINITELY**. Flow jumps to finally then back to return statement.
+* If needed, a method might throw more than one exception (one or the other). But the throwing method should declare it beforehand. If all the exceptions are subclasses of a class, then the super class alone can be declared.
+
+```java
+public class Laundry {
+    public void doLaundry() throws PantsException, ShirtsException {
+        ;
+    }
+}
+
+
+// Then the catching statements can be like
+
+try {
+    //stuff
+} catch (PantsException pantExcep) {
+    //stuff
+} catch (ShirtsException shirtExcep) {
+    //stuff
+} finally {
+    //stuff
+}
+```
+
+* You can DECLARE exceptions using a super type of the exceptions you throw.
+* You can CATCH exceptions using a super type of the exceptions that is thrown.
+* But that doesn't mean you always should use the super class to catch exceptions. If the thrown exception is caught by more abstract/generic type, then we wouldn't exactly know what went wrong.
+* Write the recovery for known exceptions in catch blocks and for others just use a generic one. Like,
+
+```java
+try {
+
+}
+catch (TeeShirtException) {
+    // Known
+}
+catch (PantException) {
+    // Known
+}
+catch (ClothException) {
+    // For all other cases
+}
+```
+
+* The order in which the catch blocks are written matters. The order should be from the bottom of the inheritance tree to the top. The most concrete type should be first (or it'll be caught by something more abstract).
+* We have the alternative to _duck_ the exception. All you have to do is _declare_ that _you throw_ the exceptions.
+* It like the vadivelu comedy, where the one touches the head gets bitten. Each guy ducks and throws him to the next guy.
+* At last, if the main also doesn't have a try/catch blocks and ducks then the JVM is supposed to handle the exception, and it can't. So it shuts down.
