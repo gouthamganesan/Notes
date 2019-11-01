@@ -14,4 +14,4 @@
       1. In case of images that are purely for decorative purpose, using an empty `alt` attribute is the best practice.
 9. `<a href="url">Text to hyperlink</a>` is used to hyperlink the text inside the tag.
    1.  The `href` attribute where we will give the link to hyperlink.
----Link to External Pages with Anchor ElementsPassed---
+  ---Link to External Pages with Anchor ElementsPassed---
