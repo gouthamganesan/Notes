@@ -1,5 +1,7 @@
 # Introduction to Basic CSS
 
+For detailed explanation about a specific property refer, [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/CSS).
+
 * Cascading Style Sheet (CSS) tells the browser how to display the text and other content you write in HTML.
 * CSS is case sensitive so be careful with your capitalizations. It has been adopted by all major browsers and allows to control,
   * color
@@ -61,3 +63,45 @@
     * The em is a very useful unit in CSS, since it automatically adapts its length relative to the font it chooses to render.
     * `em` values  **compounding**. Compounding means, multiple font-sizes being relative in the hierarchy. A inner element is relative to its parent, which is again relative to its own parent element.
   * For more detailed documentation - [MDN Web Docs by Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)
+* The font family of an element can be using the `font-family` property.
+
+  ```html
+  <style>
+    p {
+      font-family: "Source Code Pro", monospace;
+    }
+  </style>
+  ```
+
+  * The fonts that we give in the `font-family` property is used in the same order we give, when the previous font is not available. So make sure to give a fall back font value if the first one seems ambiguous.
+  * And also, if the font name contains space then they should be enclosed by double quotes as shown.
+  * Font names are case sensitive.
+  * We can also use custom web fonts on our website. [Google fonts](https://fonts.google.com/) is a free web library to use.
+  * These web fonts can be used in the web site just by referencing the font's URL in the CSS.
+  * To import a google font you can copy the font(s) URL from the Google font library and then paste it in your HTML before using it, like `<link href="font-URL" rel="stylesheet" type="text/css">`
+  * Now the font can be used in the CSS as shown in the example.
+  * Generic fonts like `monospace`, `serif` and `sans-serif` are not case sensitive as they are CSS keywords. They are used so that if the give font is not available then they can be degraded to this value.
+* Just like fonts other elements, images in this case, can be resized to a specified px value. This can be done using the `width` keyword.
+  * By default it sets the width of the content area, but if `box-sizing` is set to `border-box` it sets the width of the border area.
+  * `width` can also have values like, `em` and percentage `%` and also keyword values like, `max-content`, `min-content`, `available` etc.
+* There are border properties like, `border-width`, `border-style` and `border-color` to surround a HTML element with a border. For example,
+  
+  ```html
+  <style>
+      .thin-red-border {
+        border-color: red;
+        border-width: 5px;
+        border-style: solid;
+      }
+    </style>
+  ```
+
+  * There are many properties for customizing borders ([Refer here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders) for more) like, `border-radius`.
+* **NOTE:** For applying more than one class to a HTML element separate them with space as in, `<img class="class1 class2">`
+* When there are more number of classes assigned to a same HTML element, it is considered as in, list down all the properties set in all the assigned classes and apply them. So giving a property in one class or the other depends on the class usage, like how the class is going to be reused for other components.
+* There are background properties like, `background-color`. These properties when set to HTML elements will allow the element and all the other elements inside it to have that color unless overridden.
+* In addition to `class` each HTML element can have an `id` attribute. This will be particularly helpful to identify elements to modify them with JS.
+  * It is best practice to have the `id` of an element to be unique from others.
+* While styling, `id` attribute can also be used as style name (instead of element tags like `h2` and class names by `.class-name`) by using the `#` sign as in, `#id-name { properties; }`. 
+  * Although the `id` are not reusable so should be applied to only one element.
+  * Styling with `id` has more specificity (precedence/importance) so, when both `class` and `id` are used for styling, the style with the `id` is taken.
