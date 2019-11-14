@@ -93,15 +93,68 @@ For detailed explanation about a specific property refer, [MDN web docs](https:/
         border-width: 5px;
         border-style: solid;
       }
-    </style>
+  </style>
   ```
 
   * There are many properties for customizing borders ([Refer here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders) for more) like, `border-radius`.
 * **NOTE:** For applying more than one class to a HTML element separate them with space as in, `<img class="class1 class2">`
 * When there are more number of classes assigned to a same HTML element, it is considered as in, list down all the properties set in all the assigned classes and apply them. So giving a property in one class or the other depends on the class usage, like how the class is going to be reused for other components.
 * There are background properties like, `background-color`. These properties when set to HTML elements will allow the element and all the other elements inside it to have that color unless overridden.
-* In addition to `class` each HTML element can have an `id` attribute. This will be particularly helpful to identify elements to modify them with JS.
+* In addition to `class` each HTML element can have an `id` attribute as a `Selector`. This will be particularly helpful to identify elements to modify them with JS.
   * It is best practice to have the `id` of an element to be unique from others.
 * While styling, `id` attribute can also be used as style name (instead of element tags like `h2` and class names by `.class-name`) by using the `#` sign as in, `#id-name { properties; }`. 
   * Although the `id` are not reusable so should be applied to only one element.
   * Styling with `id` has more specificity (precedence/importance) so, when both `class` and `id` are used for styling, the style with the `id` is taken.
+* All HTML elements are essentially rectangles. Three important properties control the space that surrounds each HTML elements: `padding`, `margin` and `border`. They can be assigned a `px` value.
+  * `padding` is the amount of space between the element's content and its `border`.
+  * `margin` controls the amount of space between the element's `border` and surrounding elements.
+    * If there are two elements (top and bottom) the largest `margin` will be the space between them.
+    * If you set an element `margin` to a negative value, the element will grow larger.
+  * Just like properties like, `border-radius`, `padding` and `margin` is also shorthand for, `-top`, `-right`, `-bottom` and `-left` properties. This is known as 'Clockwise notation' and can be implemented as, `padding: 10px 20px 10px 20px;` for top, right, bottom, and left respectively.
+  * **TIP:** For more details on how these properties affect the HTML elements look into the 'Styles' tab of 'developer tools'.
+* In addition to `class` and `id` selectors we have spoke about earlier, we can also specify, `[attr=value] { properties; }` and this will apply the said properties to all the elements which has the `attr`'s value as `value`. For detailed explanation on all the available types of attribute selectors, [click here](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors).
+  
+  ```html
+    <style>
+      [type='radio'] {
+        margin: 20px 0px 20px 0px;
+      }
+    </style>
+  ```
+
+* There are two types of units in CSS.
+  * **Absolute**, like, `px` which we have been using so far. There are also other absolute units including, `mm` and `in` for millimeter and inches. These absolute values amount to the actual distance on the screen (though might differ slightly due to resolution of screens).
+  * **Relative**, like, `em` and `rem` which are relative to another `<length>` value. `em` for example is relative to the `font-size` of the element in topic. If the `font-size` itself is set in `em` then it is based on the `font-size` of the parent element.
+* **Inheritance**
+  * Every HTML page has a body element which is at the top of the hierarchy for inheritance.
+  * All the elements inside another element, will inherit the style of the parent element.
+  * For example, if we give properties to the `body` element then all the elements in the page will inherit from the `body` element.
+  * If we manually style an element which inherits styles from a parent, then the manual values override the inherited one.
+  * For example,
+
+    ```html
+      <style>
+        body {
+          background-color: black;
+          font-family: monospace;
+          color: green;
+        }
+        .pink-text {
+          color: pink;
+        }
+      </style>
+      <h1 class="pink-text">Hello World!</h1>
+    ```
+
+  * Here the `h1` element inherits the `background-color`, `font-family` and the `color` property from the `body` selector's style.
+  * But the `h1` is also styled by the `pink-text` class which has a `color` property. So the `color` property inherited from the `body` element will be overridden here.
+  * If we declare another style after `pink-text`, say, `blue-text`  with `color: blue` and add the same class to the `h1` the `pink-text` will be overrode by the `blue-text`.
+    * Although the order in which the classes are listed in the element doesn't matter, what matters is the order of styles declaration and since `blue-text` is declared after the `pink-text`, the `blue-text` has higher precedence.
+    * This proves that browsers read CSS from top to bottom and the lowest one takes higher precedence.
+  * There are other ways to override CSS, using the `id` attribute. If we give an element an `id` attribute (remember `id` attributes should be unique for each element) and use the `id` to style the component as in `#id-value` then this takes more precedence than the class declarations.
+    * `id` declarations override class declarations, regardless of where they are declared (well on top or lower on the bottom in the style element or CSS)
+  * Just like the `id` declarations overrode class declarations, inline styling overrides `id` declarations.
+  * Sometimes it is needed to defy the natural CSS hierarchy and enforce a style over its overriding components. This can be done by using the `!important` keyword along with the property declaration. For example, `color: red !important;` makes this particular component the un-override-able and use the property value declared here for styling.
+* We can also represent colors using [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal). In CSS we use 6 hexadecimal digits to represent colors, two each for Red, Green and Blue. For example, `#000000` is black and also the lowest possible value.
+  * 6 digits gives us the possibilities of over 16 million colors. We can use shortened value using only 3 digits, where one value corresponds to RGB. This reduces the total number of possibilities to 4000.
+* We can also represent colors using RGB values 
