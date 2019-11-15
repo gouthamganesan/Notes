@@ -157,4 +157,43 @@ For detailed explanation about a specific property refer, [MDN web docs](https:/
   * Sometimes it is needed to defy the natural CSS hierarchy and enforce a style over its overriding components. This can be done by using the `!important` keyword along with the property declaration. For example, `color: red !important;` makes this particular component the un-override-able and use the property value declared here for styling.
 * We can also represent colors using [hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal). In CSS we use 6 hexadecimal digits to represent colors, two each for Red, Green and Blue. For example, `#000000` is black and also the lowest possible value.
   * 6 digits gives us the possibilities of over 16 million colors. We can use shortened value using only 3 digits, where one value corresponds to RGB. This reduces the total number of possibilities to 4000.
-* We can also represent colors using RGB values 
+* We can also represent colors using RGB values like, `rgb(0, 255, 255)`, where the values represent r, g and b (brightness of each colors) respectively and can take values from 0 to 255. The number of colors `RGB` and hexadecimal gives are the same.
+* We can use CSS variables to change multiple values at once. To create a CSS variable use a variable name with `--` prefix and its value after a `:`, like, `--variable-name: value`.
+  * To refer to the variable after declaring it, use can use the `var` keyword like in, `var(--variable-name)`.
+  * We can attach a fallback value while using the variable in a place by, `var(--variable-name, fallback-value)` this way, if there is no declaration or an invalid value in the declaration the property will have a fallback value. **Note** This is just for the said purpose and not for increasing browser compatibility.
+  * The declaration of the variable and its scope are mostly handled by the natural CSS inheritance. For non-trivial projects it is a good practice to declare the variables in the `:root` (*pseudo*) class selector and use it as needed in the document. We can also declare them in `body` tag's style thus making it available for all the other tags.
+  * Declaring a variable in the `:root` selector will set the value for that variable for the whole page. You can override the value of that variable inside another area, by declaring another value.
+  * ***Questions***: How are classes inherited? How are classes/values overridden? What makes a class a subclass of another?
+* It is important to provide browser fallbacks. For example, if there is some problem with our properties the browser should have something to fallback to. Otherwise it will fallback to the browser default values, which is simply not ideal.
+  * To provide browser fallbacks, declare a fallback value which is widely available which immediately BEFORE your declaration. Like in the below
+
+  ```html
+      <style>
+        :root {
+          --red-color: red;
+        }
+        .red-box {
+          background: red; <!-- This is read first by the browser and executed -->
+          background: var(--red-color); <!-- This is read second. If this is not available then it will stay with the above value or else this value will be used -->
+          <!-- This happens because of the precedence order. -->
+          <!-- Properties which are declared latest has more precedence than the ones that are declared before -->
+          height: 200px;
+          width:200px;
+        }
+      </style>
+      <div class="red-box"></div>
+  ```
+
+* Using media queries to change the value of a variable.
+  * *Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).*<sup>[[1]](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)</sup>
+  * For instance if the screen is smaller then we have to make adjustments to our absolute values. This can be done by,
+
+  ```html
+    <style>
+      @media (max-width: 350px) {
+        :root {
+          --penguin-size: 200px;
+        }
+      }
+    </style>
+  ```
