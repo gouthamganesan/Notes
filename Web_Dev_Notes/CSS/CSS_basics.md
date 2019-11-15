@@ -186,7 +186,8 @@ For detailed explanation about a specific property refer, [MDN web docs](https:/
       }
       .red-box {
         background: red; <!-- This is read first by the browser and executed -->
-        background: var(--red-color); <!-- This is read second. If this is not available then it will stay with the above value or else this value will be used -->
+        background: var(--red-color); <!-- This is read second. If this is not available then ... -->
+        <!-- it will stay with the above value or else this value will be used -->
         <!-- This happens because of the precedence order. -->
         <!-- Properties which are declared latest has more precedence than the ones that are declared before -->
         height: 200px;
