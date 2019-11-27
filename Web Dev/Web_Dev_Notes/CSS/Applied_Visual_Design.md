@@ -51,6 +51,12 @@
   * The default layout of elements in this way is called the *normal flow* of a document. But CSS offers a property to override it.
   * When the `position` of an element is set to `relative`, we can specify how the element should be moved relative to its current position. It pairs with **offset** properties `left` or `right` and `top` or `bottom`. These properties can have a length value that specifies how far the element should be from its original placement.
     * For example, `top: 15px;` offsets the element `15px` below its default placement.
+    * Changing an element's position to relative does not remove it from the normal flow - other elements behave as if the element is in its default position. And because of this behavior overlapping can happen, if we are not careful.
+    * We are offsetting an element away from a given spot, which moves the element away from the referred side.
+
+![CSS Offset properties](https://cdn-media-1.freecodecamp.org/imgr/eWWi3gZ.gif)
+
+* The next option for the CSS `position` property is `absolute`, which locks the element in place relative to its parent container. Unlike the `relative` position, this removes the element from the normal flow of the document, so surrounding items ignore it. The CSS offset properties (top or bottom and left or right) are used to adjust the position.
   * One nuance with absolute positioning is that it will be locked relative to its closest positioned ancestor. If you forget to add a position rule to the parent item, (this is typically done using `position: relative;`), the browser will keep looking up the chain and ultimately default to the body tag.
   * Like `relative` this would also result in overlapping if not the elements are placed correctly.
 * Similar to the other layout scheme there is `fixed` position, which is a type of absolute positioning that fixes the element relative to the browser window.
