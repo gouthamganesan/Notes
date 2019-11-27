@@ -1,0 +1,6 @@
+form input {
+    display: inline;
+}
+form label {
+    width: 25%;
+}

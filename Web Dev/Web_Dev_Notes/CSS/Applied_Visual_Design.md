@@ -51,12 +51,6 @@
   * The default layout of elements in this way is called the *normal flow* of a document. But CSS offers a property to override it.
   * When the `position` of an element is set to `relative`, we can specify how the element should be moved relative to its current position. It pairs with **offset** properties `left` or `right` and `top` or `bottom`. These properties can have a length value that specifies how far the element should be from its original placement.
     * For example, `top: 15px;` offsets the element `15px` below its default placement.
-    * Changing an element's position to relative does not remove it from the normal flow - other elements behave as if the element is in its default position. And because of this behavior overlapping can happen, if we are not careful.
-    * We are offsetting an element away from a given spot, which moves the element away from the referred side.
-
-![CSS Offset properties](https://cdn-media-1.freecodecamp.org/imgr/eWWi3gZ.gif)
-
-* The next option for the CSS `position` property is `absolute`, which locks the element in place relative to its parent container. Unlike the `relative` position, this removes the element from the normal flow of the document, so surrounding items ignore it. The CSS offset properties (top or bottom and left or right) are used to adjust the position.
   * One nuance with absolute positioning is that it will be locked relative to its closest positioned ancestor. If you forget to add a position rule to the parent item, (this is typically done using `position: relative;`), the browser will keep looking up the chain and ultimately default to the body tag.
   * Like `relative` this would also result in overlapping if not the elements are placed correctly.
 * Similar to the other layout scheme there is `fixed` position, which is a type of absolute positioning that fixes the element relative to the browser window.
@@ -77,3 +71,18 @@
   * Tertiary colors are the result of combining a primary color with a secondary one.
   * Split-complementary scheme is one of the methods of combining and choosing colors for the web page.
     * This scheme starts with a base color, then pairs it with the two component that are adjacent to its complement. The three colors provide strong visual contrast in design but are more subtle than using two complementary colors.
+* CSS has a `hsl()` property that will allow us to configure the hue, saturation and the lightness of a color.
+  * Hue is what people generally think of as 'color'. If you picture a spectrum of colors starting with red on the left, moving through green in the middle, and blue on right, the hue is where a color fits along this line. In `hsl()`, hue uses a color wheel concept instead of the spectrum, where the angle of the color on the circle is given as a value between 0 and 360.
+  * Saturation is the amount of gray in a color. A fully saturated color has no gray in it, and a minimally saturated color is almost completely gray. This is given as a percentage with 100% being fully saturated.
+  * Lightness is the amount of white or black in a color. A percentage is given ranging from 0% (black) to 100% (white), where 50% is the normal color.
+* Applying the color on CSS elements are not just limited to a solid color. We can also add linear gradient using the `background` property's `linear-gradient()` function. The general syntax is, `background: linear-gradient(gradient-direction, color 1, color 2, color 3,...)`.
+  * There is also a `repeating-linear-gradient()` function which is very similar to `linear-gradient()` with the major difference that it repeats the specified gradient pattern.
+    * The common syntax is that, `repeating-linear-gradient(angle, color stop 1, color stop 2...)`
+    * Where color stops contains a color and a `<length>` value, which says, blend to the next color on this `<length>`.
+* The background property also supports the `url()` function in order to link to an image of the chosen texture or pattern.
+  * Having a subtle texture or pattern as background adds beauty to the web page. But make sure to be subtle about it as it shouldn't take away the audience from the foreground.
+* The scale of an element can be changed using the `scale()` function of the `transform` property. For example, `p { transform: scale(1.5); }` scales the paragraph elements to 1.5 times it size.
+  * This will be particularly useful to make a difference when we scale an element on a hover.
+  * `p:hover { transform: scale(2.1); }` will scale when the user hovers over it.
+* The `transform` property can also be used to 'skew' a particular element by the `skew()` function. There are also, `skewX()` and `skewY()` functions for X and Y skewing.
+  * For example, `transform: skewX(45deg);` skews the particular element in the X plane by 45 degrees.
