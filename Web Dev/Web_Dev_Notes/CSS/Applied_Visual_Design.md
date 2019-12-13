@@ -29,7 +29,7 @@
 * The `font-size` property can be used to change the size of the font and `font-weight` property shows how thick or thin characters are in a section of text. These properties can be applied to any element that contains text.
 * `line-height` property is used to change the height of each line in a block of text.
 * There are different 'states' to an element. `pseudo-classes` can be used to select a particular state of an element and style that state.
-  * For example, the `hover` pseudo call of anchor can be used to give CSS rules for/when the element is hovered.
+  * For example, the `hover` pseudo class of anchor can be used to give CSS rules for/when the element is hovered.
   
   ```html
   <style>
@@ -92,3 +92,11 @@
   * `p:hover { transform: scale(2.1); }` will scale when the user hovers over it.
 * The `transform` property can also be used to 'skew' a particular element by the `skew()` function. There are also, `skewX()` and `skewY()` functions for X and Y skewing.
   * For example, `transform: skewX(45deg);` skews the particular element in the X plane by 45 degrees.
+* The `border-radius` property will allow us to control the corner radius of the element. Setting it to `50%` will make a square a circle.
+* The `transform: rotate(-45deg)` rotates the element.
+* There are also pseudo elements, that are used to target a particular part of the targeted element.
+  * For example, there are `before` and `after` pseudo elements, which is used to do changes to the targeted element.
+    * This doesn't mean to target the 'element' after the targeted element, but to put/do some changes after or before the targeted element.
+    * And also, to use these elements the property `content: ''` should be used. This content should contain an image or a text to put before or after an element. For example, this content property can be used to put an arrow mark after every anchor element.
+  * Remember, `selector:pseudo-class` and `selector::pseudo-element`.
+  * To put it in an easy to remember way, a pseudo element, as the name suggests is an element that is imaginarily associated with the targeted element. You can apply styles as if it is a real element.

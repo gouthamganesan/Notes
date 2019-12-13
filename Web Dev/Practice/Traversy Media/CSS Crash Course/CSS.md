@@ -147,4 +147,5 @@
 ```
 
 * There are many more ways you can target a pseudo class. Have to learn more on it.
+  * Giving states like, hover, visited, checked are also some of the types of pseudo classes.
 * To make an element responsive to the browser size (wrt height) we can use the `min-height` property. Learn more about it.
