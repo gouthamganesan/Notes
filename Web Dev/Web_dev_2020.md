@@ -2,22 +2,33 @@
 
 Source: [Youtube](https://www.youtube.com/watch?v=0pThnRneDjw&t=558s)
 
-* What you want to do?
-  * I want to quickly make websites and apps mostly for personal and productivity purpose. So I want to be Full Stack.
+- What you want to do?
+  - I want to quickly make websites and apps mostly for personal and productivity purpose. So I want to be Full Stack.
 
 ## Tutorials
 
 - [ ] The building blocks
   - [x] HTML Crash Course For Beginners
-  - [ ] CSS Crash Course For Beginners.
+  - [x] CSS Crash Course For Beginners.
   - [ ] CSS Grid & Flexbox
-    - [ ] CSS Grid Crash Course
+    - [x] CSS Grid Crash Course
+      - [ ] Looking at advanced concepts
     - [ ] Flexbox in 20 minutes
 - [ ] Responsive design
   - [ ] Build an HTML5 website with a responsive layout
   - [ ] Responsive landing page
   - [ ] Build a responsive mobile first website
   - [ ] Build a netflix clone (HTML/CSS)
+  - [ ] CSS Grid Responsive Website Layout - "Mobile First Design"
+  - [ ] Build responsive Grid CSS Website Layout From Scratch
+
+
+---
+
+Deadline - Jan 1, 2020
+
+---
+
 - [ ] Custom Reusable CSS Components
   - [ ] Social Network Theme with Sass
   - [ ] Responsive Portfolio Project
@@ -27,6 +38,11 @@ Source: [Youtube](https://www.youtube.com/watch?v=0pThnRneDjw&t=558s)
   - [ ] Bootstrap Crash Course
   - [ ] Materialize Crash Course
   - [ ] Bulma Crash Course
+        ---ˇ
+        Deadline - Jan 3, 2020
+
+---
+
 - [ ] Vanilla JavaScript
   - [ ] JavaScript Crash Course
   - [ ] DOM Crash Course
@@ -34,6 +50,13 @@ Source: [Youtube](https://www.youtube.com/watch?v=0pThnRneDjw&t=558s)
   - [ ] Async JavaScript
   - [ ] Vanilla JavaScript Playlist
   - [ ] JSON - Find tutorial
+
+---
+
+Deadline - Jan 10, 2020
+
+---
+
 - [ ] Tools 2
   - [ ] Linux command line basics
   - [ ] Git crash course

@@ -94,3 +94,6 @@
 * The `<head>` tag can contain `meta` tags which are used by search engines to searches and rank your web page.
   * `<meta name="what the meta tag is about" content="the actual meta data">`
   * These are not displayed in the web page but will be used by the search engines.
+
+---
+Continues at [CSS Crash Course](../CSS&#32;Crash&#32;Course/CSS.md)
