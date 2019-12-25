@@ -1,0 +1,24 @@
+@media(min-width:768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }  
+}
+
+.container_for_wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container > div, .container_for_wrap > .boxes {
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+.box1, .box2, .box3 {
+    flex-basis: 30%;
+}
+
+.boxes {
+    flex-basis: 12%;
+}

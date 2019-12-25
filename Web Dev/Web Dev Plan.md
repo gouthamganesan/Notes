@@ -10,10 +10,9 @@ Source: [Youtube](https://www.youtube.com/watch?v=0pThnRneDjw&t=558s)
 - [ ] The building blocks
   - [x] HTML Crash Course For Beginners
   - [x] CSS Crash Course For Beginners.
-  - [ ] CSS Grid & Flexbox
+  - [x] CSS Grid & Flexbox
     - [x] CSS Grid Crash Course
-      - [ ] Looking at advanced concepts
-    - [ ] Flexbox in 20 minutes
+    - [x] Flexbox in 20 minutes
 - [ ] Responsive design
   - [ ] Build an HTML5 website with a responsive layout
   - [ ] Responsive landing page
@@ -21,7 +20,6 @@ Source: [Youtube](https://www.youtube.com/watch?v=0pThnRneDjw&t=558s)
   - [ ] Build a netflix clone (HTML/CSS)
   - [ ] CSS Grid Responsive Website Layout - "Mobile First Design"
   - [ ] Build responsive Grid CSS Website Layout From Scratch
-
 
 ---
 
@@ -38,8 +36,10 @@ Deadline - Jan 1, 2020
   - [ ] Bootstrap Crash Course
   - [ ] Materialize Crash Course
   - [ ] Bulma Crash Course
-        ---ˇ
-        Deadline - Jan 3, 2020
+
+---
+
+Deadline - Jan 3, 2020
 
 ---
 
