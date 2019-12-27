@@ -99,7 +99,8 @@
 - There are also pseudo elements, that are used to target a particular part of the targeted element.
   - For example, there are `before` and `after` pseudo elements, which is used to do changes to the targeted element.
     - This doesn't mean to target the 'element' after the targeted element, but to put/do some changes after or before the targeted element.
-    - And also, to use these elements the property `content: ''` should be used. This content should contain an image or a text to put before or after an element. For example, this content property can be used to put an arrow mark after every anchor element.
+    - And also, to use these elements the property `content: ''` should be used. This content should contain an image or a text to put before or after an element. For example, this content property can be used to put an arrow mark after every anchor element. 
+    - These are inline by default. This can be used by elements that should have something immediately before or after the selected element, like "Hot topic" and such.
   - Remember, `selector:pseudo-class` and `selector::pseudo-element`.
   - To put it in an easy to remember way, a pseudo element, as the name suggests is an element that is imaginarily associated with the targeted element. You can apply styles as if it is a real element.
 - **Animation:** The animation properties control how the animation should behave and the `@keyframes` rule controls what happens during that animation.
@@ -148,3 +149,16 @@
     ```
 
   - Adding the above animation for the button, just for itself would not complete it. After the 500ms, the button returns to its original color.
+  - This can be done by setting the `animation-fill-mode` property to `forwards`. `animation-fill-mode` specifies the styling that should be applied to the element when the animation completes. Read more on this [here](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode)
+  - `animation-iteration-count` property specifies how many times the animation should repeat. Setting it to infinite will run it continuously. Set the animation to complete a loop so that when it runs continuously it will look natural.
+  - Use the `opacity` property to make fading out/in animation.
+  - The `animation-duration`, `@keyframe` rule value can be modified to change the rate of animation.
+  - The `animation-timing-function` property controls how quickly an animated element changes over the duration of the animation. If the animation is a car moving from point A to point B in a given time (your `animation-duration`), the `animation-timing-function` says how the car accelerates and decelerates over the course of the drive.
+  - There are predefined keywords for the popular styles. The default one is `ease` which is slow-quick-slow. There is `ease-out` which is quick-slow and also `ease-in` which is the opposite.
+    - There is also `linear` which moves in the same speed throughout the animation.
+  - Even finer controls of how the animation plays out is given by Bezier Curves.
+    - Imagine a graph with the x axis set to the time during animation and the y axis as the speed of animation.
+    - The graph controls the speed of the animation during the timing.
+    - There are four points p0, p1, p2 and p3. The points p0 (origin, (0,0)) and p3(1,1) are already set. We should specify the p1 and p2 points and that determines the speed of the animation at that particular time.
+    - The co-ordinates for p1 and p2 are given by, `animation-timing-function: cubic-bezier(x1, y1, x2, y2)`.
+    - For example, the values, `0.25, 0.25, 0.75, 0.75` is the equivalent of `linear` as it gives a straight line on the curve. 
