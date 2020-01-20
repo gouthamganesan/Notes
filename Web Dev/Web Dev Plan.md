@@ -7,7 +7,7 @@ Source: [Youtube](https://www.youtube.com/watch?v=0pThnRneDjw&t=558s)
 
 ## Tutorials
 
-- [ ] The building blocks
+- [x] The building blocks
   - [x] HTML Crash Course For Beginners
   - [x] CSS Crash Course For Beginners.
   - [x] CSS Grid & Flexbox
