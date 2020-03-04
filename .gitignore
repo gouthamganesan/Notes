@@ -2,3 +2,4 @@ test/*
 .vscode/launch.json
 *.swp
 *.swo
+.vscode/settings.json
