@@ -24,3 +24,22 @@
   - `nowrap` - Which is the default option.
   - `wrap` - Wraps items from left-to-right if they are in a row, or top-to-bottom if they are in a column.
   - `wrap-reverse` - Wraps items from right-to-left if they are in a row, or bottom-to-top if they are in a column.
+- So far all the properties are addressed towards the flex containers. But there are properties for flex items too.
+  - `flex-shrink`
+    - If the width of the flex container is smaller than the combined width of the flex items then the flex items are shrunk. The `flex-shrink` property takes a number value (which is the flex shrink factor) and the item with the highest number will shrink more. For example if one item has the value 1 and the other has the value 3, the one with the 3 will shrink thrice more than the one with 1.
+      - I can't find the actual definition of the number and how the difference in the shrink factor will play in the space allocation. Although this is what I found on the shrink factor, "A number specifying how much the item will shrink relative to the rest of the flexible items."
+  - `flex-grow`
+    - This is the exact opposite of the `flex-shrink` property. If there is more space in the container than needed, and there are two items with `flex-grow` 1 and 3, the one with the value 3 grows thrice as the one with 1.
+  - `flex-basis`
+    - This property sets the initial size of the element before the CSS makes the changes.
+    - Its units are the same as others like, %, em and such.
+    - The value `auto` changes the width based on the content of the container.
+  - `flex`
+    - This is the shorthand for `flex-grow`, `flex-shrink` and `flex-basis`.
+    - The default is the default of the above, i.e. `flex: 0 1 auto;`
+  - `order`
+    - The order property can be used to set the order of the flex items that are appearing. By default they appear on the order the items are in the HTML.
+    - Negative numbers are also allowed here.
+  - `align-self`
+    - Other properties like, `float`, `clear` and `vertical-align` will not affect the individual items in the flexbox. `align-self` takes the same value as `align-items` but can override the value set by the `align-items` property.
+    - This property is especially useful when wanting to individually align a specific item in flex.
