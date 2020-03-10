@@ -3,3 +3,4 @@ test/*
 *.swp
 *.swo
 .vscode/settings.json
+Python/Corona/crawler.py
